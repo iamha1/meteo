@@ -30,8 +30,7 @@ function formatDate(date){
         minutes = `0${minutes}`;
     }
 
-    return `${day}, Time: ${hours}:${minutes}`;
-
+    console.log(`${day}, Time: ${hours}:${minutes}`);
 }
 
 //2. Make API call and update the interface
@@ -52,22 +51,6 @@ function handleSearchSubmit(event){
     cityElement.innerHTML = searchInput.value;
 }
 
-function displayForecast(){
-    let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-    let forecastHtml = "";
-
-    days.forEach(function (day){
-        forecast.innerHTML = forecastHtml + `<div class="weather-forecast-day">
-        <div class="weather-forecast-date">Tue</div>
-        <div class="weather-forecast-icon">🌤️</div>
-        <div class="weather-forecast-temperatures">
-          <div class="weather-forecast-temperature"><strong>15°F</strong> 9°F </div> 
-          </div>  
-    </div>`
-        
-    })
-}
-let forecast = document.querySelector(".weather-forecast");
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
