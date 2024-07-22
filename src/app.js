@@ -22,6 +22,9 @@ function refreshWeather(response){
 }
 
 function formatDate(date){
+    let timeElement = document.querySelector("#time");
+    timeElement.innerHTML = `${date.getDay()}, ${date.getHours()}:${date.getMinutes()}`;
+
     let minutes = date.getMinutes();
     let hours = date.getHours();
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -30,8 +33,9 @@ function formatDate(date){
         minutes = `0${minutes}`;
     }
 
-    console.log(`${day}, Time: ${hours}:${minutes}`);
+    return `${day}, Time: ${hours}:${minutes}`;
 }
+
 
 //2. Make API call and update the interface
 function searchCity(city){
@@ -56,3 +60,21 @@ searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Hanoi")
 
+function displayForecast(){
+    let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+    let forecastHtml = "";
+    let forecast = document.querySelector(".forecast")
+  
+    days.forEach(function (day){
+        forecastHtml = forecastHtml + `<div class="weather-forecast-day">
+              <div class="weather-forecast-date">${day}</div>
+              <div class="weather-forecast-icon">🌤️</div>
+              <div class="weather-forecast-temperatures">
+                <div class="weather-forecast-temperature"><strong>15°F</strong> 9°F </div> 
+                </div>  
+          </div>`
+    
+    });
+}
+   let forecastElement = document.querySelector(".forecast");
+   forecastElement.innerHTML = forecastHtml;   
