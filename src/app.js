@@ -61,7 +61,7 @@ searchFormElement.addEventListener("submit", handleSearchSubmit);
 searchCity("Hanoi")
 
 function displayForecast(){
-    let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+    let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     let forecastHtml = "";
     let forecast = document.querySelector(".forecast")
   
@@ -72,9 +72,10 @@ function displayForecast(){
               <div class="weather-forecast-temperatures">
                 <div class="weather-forecast-temperature"><strong>15°F</strong> 9°F </div> 
                 </div>  
-          </div>`
-    
+          </div>`    
     });
+    let forecastElement = document.querySelector(".forecast");
+    forecastElement.innerHTML = forecastHtml;   
+    
 }
-   let forecastElement = document.querySelector(".forecast");
-   forecastElement.innerHTML = forecastHtml;   
+displayForecast()
